@@ -11,9 +11,15 @@ book.update(:title => 'Fight club', :author_name => 'Chuck Palahniuk')
 movie.update(:title => 'Leon', :director_name => 'Luke Besson', :year => 1998)
 disc.update(:album_name => 'Seasons in the Abyss', :artist_name => 'Slayer', :genre => 'Metal')
 
-book.show
-movie.show
-disc.show
+product_array = [
+    book,
+    movie,
+    disc
+]
+
+puts "What do you want to buy?"
+puts
+Product.showcase(product_array)
 
 
 

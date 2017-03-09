@@ -20,6 +20,9 @@ product_array = [
 puts "What do you want to buy?"
 puts
 Product.showcase(product_array)
+product_array[1].buy
+
+
 
 
 

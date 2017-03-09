@@ -15,18 +15,33 @@ class Product
   #   return post_types[type_index].new
   # end
 
-  def self.buy(product_array, choice)
+  # def self.buy(product_array, choice)
+  #
+  #   qty = product_array[choice].qty
+  #
+  #   if qty > 0
+  #     new_qty = qty - 1
+  #     puts "You buy: #{product_array[choice].info}"
+  #     puts "Product amount after buy: #{new_qty}"
+  #   else
+  #     puts "Amount of product is #{qty}. Sorry you can't buy it."
+  #   end
+  # end
 
-    qty = product_array[choice].qty
+  def buy
+    # Если товар был на складе — уменить количество и вернуть цену
+    if @qty > 0
+      puts "Вы купили товар #{info}"
 
-    if qty > 0
-      new_qty = qty - 1
-      puts "You buy: #{product_array[choice].info}"
-      puts "Product amount after buy: #{new_qty}"
+      @qty -= 1
+      price
+      # Если товар закончился — продавать нечего, доход магазина 0
     else
-      puts "Amount of product is #{qty}. Sorry you can't buy it."
+      puts "К сожалению, больше нет"
+      0
     end
   end
+
 
   def self.showcase(product_array)
 
@@ -42,7 +57,7 @@ class Product
       choice = gets.chomp.to_i
     end
     # puts "You buy: #{product_array[choice]}"
-    Product.buy(product_array, choice)
+    # Product.buy(product_array, choice)
   end
 
 

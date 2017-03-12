@@ -1,6 +1,7 @@
 class Product
 
   attr_reader :price, :qty
+  # attr_reader :total
 
   def initialize(price, qty)
     @price = price
@@ -15,7 +16,7 @@ class Product
   #   return post_types[type_index].new
   # end
 
-  # def self.buy(product_array, choice)
+  # def buy(product_array, choice)
   #
   #   qty = product_array[choice].qty
   #
@@ -28,36 +29,31 @@ class Product
   #   end
   # end
 
+
   def buy
     # Если товар был на складе — уменить количество и вернуть цену
     if @qty > 0
-      puts "Вы купили товар #{info}"
-
+      puts "You buy: #{info}"
       @qty -= 1
+
+      puts "Product amount after buy: #{qty}"
       price
       # Если товар закончился — продавать нечего, доход магазина 0
     else
-      puts "К сожалению, больше нет"
+      puts "Amount of product is #{qty}. Sorry you can't buy it."
       0
     end
   end
 
 
   def self.showcase(product_array)
-
-    choice = -1
-
-    until choice >= 0 && choice < product_array.size
-
-      product_array.each_with_index do |type, index|
-
-        puts "\t#{index}: #{type.show}"
-      end
-
-      choice = gets.chomp.to_i
+    puts "Please, choose:"
+    product_array.each_with_index do |type, index|
+      puts "\t#{index}: #{type.show}"
     end
-    # puts "You buy: #{product_array[choice]}"
-    # Product.buy(product_array, choice)
+    puts "\tend: Leave the store"
+    puts "\n"
+
   end
 
 
@@ -68,7 +64,7 @@ class Product
   end
 
   def show
-    info + " - {#{@price} rub. [rest: #{@qty}]"
+    info + " - #{@price} rub. [rest: #{@qty}]"
   end
 
 end

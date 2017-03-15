@@ -8,28 +8,6 @@ class Product
     @qty = qty
   end
 
-  # def self.post_types
-  #   [Movie, Book, Disc]
-  # end
-  #
-  # def self.create(type_index)
-  #   return post_types[type_index].new
-  # end
-
-  # def buy(product_array, choice)
-  #
-  #   qty = product_array[choice].qty
-  #
-  #   if qty > 0
-  #     new_qty = qty - 1
-  #     puts "You buy: #{product_array[choice].info}"
-  #     puts "Product amount after buy: #{new_qty}"
-  #   else
-  #     puts "Amount of product is #{qty}. Sorry you can't buy it."
-  #   end
-  # end
-
-
   def buy
     # Если товар был на складе — уменить количество и вернуть цену
     if @qty > 0
@@ -68,3 +46,4 @@ class Product
   end
 
 end
+
